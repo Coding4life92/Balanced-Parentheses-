@@ -8,15 +8,15 @@ bool isBalanced(string expr) {
    char ch;
 
    for (int i = 0; i<expr.length(); i++) {    //for each character in the expression, check conditions
-        if (expr[i] == '(' || expr[i] == '['|| expr[i] == '{') {    //when it is opening bracket, push into     stack
+        if (expr[i] == '(' || expr[i] == '['|| expr[i] == '{') {    //when it is opening bracket, push into stack
         s.push(expr[i]);
         continue;
       }
 
-      if (s.empty())    // stack cannot be empty as it is not opening bracket, there must be closing     bracket
+      if (s.empty())    // stack cannot be empty as it is not opening bracket, there must be closing bracket
         return false;
         switch (expr[i]) {
-            case ')':    // for closing parenthesis, pop it and check for braces and square brackets
+            case ')': // for closing parenthesis, pop it and check for braces and square brackets
                ch = s.top();
                s.pop();
                if (ch == '{' || ch == '[')
@@ -25,7 +25,7 @@ bool isBalanced(string expr) {
             case '}': // for closing braces, pop it and check for parenthesis and square brackets
                 ch = s.top();
                 s.pop();
-                if (ch=='(' || ch=='[')
+                if (ch =='(' || ch =='[')
                   return false;
                   break;
             case ']': // for closing square bracket, pop it and check for braces and parenthesis
